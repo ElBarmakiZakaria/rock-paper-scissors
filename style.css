@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    position: relative;
+}
+
+.score-round-wrapper {
+    background-color: white;
+    padding: 20px 10px 20px 10px;
+    display: flex;
+    gap: 50px;
+}
+
+.result-view {
+    margin: 20px 20px 20px 20px;
+}
+
+.selections {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+}
+
+#message-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    visibility: hidden;
+}
+.Congradulation-message {
+    position: absolute;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    z-index: inherit;
+    height: 500px;
+    top: 50%;
+    margin-top: -250px;
+    width: 700px;
+    right: 50%;
+    margin-right: -350px;
+
+
+
+}

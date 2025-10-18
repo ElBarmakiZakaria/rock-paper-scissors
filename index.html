@@ -4,25 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>Round: <span id="roundId">0</span></p>
-    <div>
-        <p>Score:</p>
-        <p>Human Score: <span id="humanScoreId">0</span></p>
-        <p>Computer Score: <span id="computerScoreId">0</span></p>
-    </div>
-    <input type="text" id="inputtext"/>
-    <div>
-        <p>Human Choice: <span id="humanChoiceId">choising...</span></p>
-        <p>Computer Choice: <span id="cumputerChoiceId">Choising...</span></p>
-        <p>result:</p> <p id="result"></p>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+
+        
+        <div class="score-round-wrapper">
+            <p>Round: <span id="roundId">0</span></p>
+            <p>Human Score: <span id="humanScoreId">0</span></p>
+            <p>Computer Score: <span id="computerScoreId">0</span></p>
+        </div>
+
+        <div class="result-view">
+            <p id="result">result</p>
+        </div>
+
+        <div class="selections">
+            <div class="player-selection">
+                <label for="human-choice">player choice: </label>
+                <select name="human-choice" id="human-choice">
+                    <option value="rock" >rock</option>
+                    <option value="paper" >paper</option>
+                    <option value="scissors" >scissors</option>
+                </select>
+            </div>
+
+            <div class="computer-selection">
+                <p class="computer-choice">Computer Choice: <span id="cumputerChoiceId">Choising...</span></p>
+            </div>    
+            <button onclick="playGame()" >check</button> 
+        </div>
+
+
+        <div id="message-container">
+            <div class="Congradulation-message">
+                <h1 id="message-title"></h1>
+                <h3 id="winner-announcement"></h3>
+                <div id="result-announcement">
+                    <h4 id="human-result"></h4>
+                    <h4 id="Computer-result"></h4>
+                </div>
+                <button onclick="resetGame()" >Reset</button>
+            </div>
+        </div>
+
+
+
     </div>
 
-    <button onclick="playGame()" >check</button>
-    <button onclick="resetGame()" >Reset</button>
-
+    <script src="script.js"></script>
 </body>
 </html>

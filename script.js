@@ -39,22 +39,54 @@ function playRound(input, computerChoice){
     }
 }
 
+function showResult(humanScore, computerScore){
+    document.getElementById("message-container").style.visibility = "visible";
+    let massageTitle = document.getElementById("message-title");
+    let winnerAnnouncement = document.getElementById("winner-announcement");
+    let humanResultDisplay = document.getElementById("human-result");
+    let computerResultDisplay = document.getElementById("Computer-result");
+
+    if (humanScore > computerScore){
+        massageTitle.innerHTML = "Congradulation :)";
+        winnerAnnouncement.innerHTML = "YOU WON!";
+        humanResultDisplay.innerHTML = humanScore;
+        humanResultDisplay.style.color = "green"
+        computerResultDisplay.innerHTML = computerScore;
+        computerResultDisplay.style.color = "red"
+
+    } else if (humanScore < computerScore) {
+        massageTitle.innerHTML = "Hard Luck :(";
+        winnerAnnouncement.innerHTML = "YOU LOST!";
+        humanResultDisplay.innerHTML = humanScore;
+        humanResultDisplay.style.color = "red"
+        computerResultDisplay.innerHTML = computerScore;
+        computerResultDisplay.style.color = "green"
+    } else {
+        massageTitle.innerHTML = "Next Time :/";
+        winnerAnnouncement.innerHTML = "IT'S A DRAW!";
+        humanResultDisplay.innerHTML = humanScore;
+        humanResultDisplay.style.color = "black"
+        computerResultDisplay.innerHTML = computerScore;
+        computerResultDisplay.style.color = "black"
+    }
+
+}
+
 let humanScore = 0;
 let computerScore = 0;
 let tries = 0;
 
 function playGame(){
-    tries++;
+    tries++
     document.getElementById("roundId").innerHTML = tries;
 
-    var input = document.getElementById("inputtext").value;
+    var humanInput = document.getElementById("human-choice").value;
     let computerChoice = getComputerChoice();
 
-    document.getElementById("humanChoiceId").innerHTML = input;
     document.getElementById("cumputerChoiceId").innerHTML = computerChoice;
 
 
-    let winner = playRound(input, computerChoice);  
+    let winner = playRound(humanInput, computerChoice);  
 
     if (winner === "human"){
         document.getElementById("result").innerHTML = "YOU WON :)";
@@ -70,10 +102,15 @@ function playGame(){
 
     document.getElementById("humanScoreId").innerHTML = humanScore;
     document.getElementById("computerScoreId").innerHTML = computerScore;
-            
-    
+
+
+    if (tries == 5) {
+        showResult(humanScore, computerScore);
+    }
 
 }
+
+
 
 function resetGame(){
     humanScore = 0;
@@ -81,10 +118,10 @@ function resetGame(){
     tries = 0;
     document.getElementById("humanScoreId").innerHTML = humanScore;
     document.getElementById("computerScoreId").innerHTML = computerScore;
-    document.getElementById("humanChoiceId").innerHTML = "choising...";
     document.getElementById("cumputerChoiceId").innerHTML = "choising...";
-    document.getElementById("result").innerHTML = " ";
+    document.getElementById("result").innerHTML = "result";
     document.getElementById("roundId").innerHTML = tries;
+    document.getElementById("message-container").style.visibility = "hidden";
 
 }
 
